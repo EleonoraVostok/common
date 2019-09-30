@@ -5,17 +5,21 @@ This is a list of functions that should be completed.
 from typing import Any
 from typing import List
 
+import string
+
 
 class OurAwesomeException(Exception):
     pass
-
 
 def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     """
     If @first and @second has same value should return True
     In another case should return False
     """
-    pass
+    if first == second:
+        return True
+    else:
+        return False
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -23,7 +27,10 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if type(first) == type(second):
+        return True
+    else:
+        return False
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -31,7 +38,10 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if first is second:
+        return True
+    else:
+        return False
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -48,7 +58,10 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    pass
+    if type(first_value) == int and type(second_value) == int:
+        return first_value * second_value
+    else:
+        raise ValueError
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
@@ -78,7 +91,15 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    pass
+    if type(second_value) == string:
+        if not second_value.isdigit():
+            raise ValueError
+
+    if type(first_value) == string:
+        if not first_value.isdigit():
+            raise ValueError
+
+    return int(first_value) * int(second_value)
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -97,14 +118,23 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    pass
+    if word in text:
+        return True
+    else:
+        return False
 
 
 def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    new_list = []
+
+    for x in range(13):
+        if x != 6 and x != 7:
+            new_list.append(x)
+
+    return new_list
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -116,7 +146,13 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    pass
+    my_list = []
+
+    for x in data:
+        if x >= 0:
+            my_list.append(x)
+
+    return my_list
 
 
 def alphabet() -> dict:
@@ -125,9 +161,13 @@ def alphabet() -> dict:
     Notes You could see an implementaion of this one in test, but create another one
     Examples:
         alphabet()
-        >>> {"a": 1, "b": 2 ...}
+    >>> {"a": 1, "b": 2 ...}
     """
-    pass
+    my_alphabet= {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9,
+              "j": 10, "k": 11, "l": 12, "m": 13, "n": 14, "o": 15, "p": 16, "q": 17,
+              "r": 18, "s": 19, "t": 20, "u": 21, "v": 22, "w": 23, "x": 24, "y": 25, "z": 26}
+
+    return my_alphabet
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -139,4 +179,17 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    pass
+#we minus 1 because we are always comparing the current value with the next value
+    length_Of_Array = len(data) - 1
+
+#number of rounds will be the total length - 1
+# #for array with length 5, we will do 4 rounds: 0 and 1, 1 and 2, 2 and 3, 3 and 4.
+
+    for i in range(length_Of_Array):
+    # at each round, we compare the current j with the next value
+        for j in range(length_Of_Array - i):
+        # only swap their positions if left value < right value and move all the small values to the end
+            if data[j] > data[j + 1]:
+                data[j], data[j + 1] = data[j + 1], data[j]
+
+    return data
