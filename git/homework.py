@@ -16,10 +16,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
-    if first == second:
-        return True
-    else:
-        return False
+    return first == second
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -27,10 +24,8 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if type(first) == type(second):
-        return True
-    else:
-        return False
+    return type(first) == type(second)
+
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -38,10 +33,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if first is second:
-        return True
-    else:
-        return False
+    return first is second
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -118,10 +110,7 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    if word in text:
-        return True
-    else:
-        return False
+    return word in text
 
 
 def some_loop_exercise() -> list:
@@ -163,9 +152,9 @@ def alphabet() -> dict:
         alphabet()
     >>> {"a": 1, "b": 2 ...}
     """
-    my_alphabet= {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9,
-              "j": 10, "k": 11, "l": 12, "m": 13, "n": 14, "o": 15, "p": 16, "q": 17,
-              "r": 18, "s": 19, "t": 20, "u": 21, "v": 22, "w": 23, "x": 24, "y": 25, "z": 26}
+    my_alphabet = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j', 11: 'k', 12: 'l',
+                    13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't', 21: 'u', 22: 'v', 23: 'w',
+                    24: 'x', 25: 'y', 26: 'z'}
 
     return my_alphabet
 
