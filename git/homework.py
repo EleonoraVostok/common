@@ -152,11 +152,14 @@ def alphabet() -> dict:
         alphabet()
     >>> {"a": 1, "b": 2 ...}
     """
-    my_alphabet = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j', 11: 'k', 12: 'l',
-                    13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't', 21: 'u', 22: 'v', 23: 'w',
-                    24: 'x', 25: 'y', 26: 'z'}
+    i = 1
+    my_alphabet = {}
+    while i <= len(string.ascii_lowercase):
+        for letter in string.ascii_lowercase:
+            my_alphabet[letter] = i
+            i += 1
 
-    return my_alphabet
+    print(my_alphabet)
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -175,9 +178,9 @@ def simple_sort(data: List[int]) -> List[list]:
 # #for array with length 5, we will do 4 rounds: 0 and 1, 1 and 2, 2 and 3, 3 and 4.
 
     for i in range(length_Of_Array):
-    # at each round, we compare the current j with the next value
+    #at each round, we compare the current j with the next value
         for j in range(length_Of_Array - i):
-        # only swap their positions if left value < right value and move all the small values to the end
+        #only swap their positions if left value < right value and move all the small values to the end
             if data[j] > data[j + 1]:
                 data[j], data[j + 1] = data[j + 1], data[j]
 
