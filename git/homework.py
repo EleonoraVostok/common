@@ -83,15 +83,11 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    if type(second_value) == string:
-        if not second_value.isdigit():
-            raise ValueError
 
-    if type(first_value) == string:
-        if not first_value.isdigit():
-            raise ValueError
-
-    return int(first_value) * int(second_value)
+    try:
+        return int(first_value) * int(second_value)
+    except ValueError:
+        print("Not valid input data")
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -159,7 +155,7 @@ def alphabet() -> dict:
             my_alphabet[letter] = i
             i += 1
 
-    print(my_alphabet)
+    return my_alphabet
 
 
 def simple_sort(data: List[int]) -> List[list]:
