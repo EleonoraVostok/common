@@ -148,7 +148,7 @@ def alphabet() -> dict:
         alphabet()
     >>> {"a": 1, "b": 2 ...}
     """
-    return dict(zip(range(1, 27), 'abcdefghijklmnopqrstuvwxyz'))
+    return dict(zip(range(1, 27), string.ascii_lowercase))
 
 
 def simple_sort(data: List[int]) -> List[list]:
